@@ -1,0 +1,31 @@
+<a class="btn btn-primary" href="/#/create/log"><span class="glyphicon glyphicon-plus"></span> Create log</a>
+<br>
+<table class="table table-striped">
+  <thead>
+    <tr><th>Title</th>
+    <th>URL</th>
+    <th>Operations</th>
+    <th></th>
+  </tr></thead>
+  <tbody>
+    <tr ng-repeat="log in logs">
+      <td><a ng-href="/#/log/{{ log._id }}">{{ log.topic }}</a></td>
+      <td>{{ log.category }}</td>
+      <td>
+        <div class="button-group">
+          <a ng-href="/#/log/{{ log._id }}/edit" class="btn btn-default">
+            <span class="glyphicon glyphicon-edit"></span>
+          </a>
+          <a ng-href="/#/log/{{ log._id }}/delete" class="btn btn-danger">
+            <span class="glyphicon glyphicon-remove-circle"></span>
+          </a>
+        </div>
+      </td>
+      <td>
+        <a ng-href="/#/log/{{log._id}}/start " class="btn btn-primary">
+          <span class='glyphicon glyphicon-circle-arrow-right'></span>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
