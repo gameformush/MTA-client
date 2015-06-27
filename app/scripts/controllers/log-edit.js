@@ -13,7 +13,7 @@ angular.module('clientApp')
 			Log.one($routeParams.id).get().then(function(log){
 				$scope.log = log;
 				$scope.saveLog = function() {
-					$scope.log.save().then(function(){
+					$scope.log.put().then(function(){
 						$location.path('/log/' + $routeParams.id);
 					});
 				};

@@ -1,26 +1,14 @@
-<a class="btn btn-primary" href="/#/create/log"><span class="glyphicon glyphicon-plus"></span> Create log</a>
-<br>
+<h3>Active logs</h3>
 <table class="table table-striped">
   <thead>
     <tr><th>Topic</th>
     <th>Category</th>
-    <th>Operations</th>
     <th>Activity</th>
   </tr></thead>
   <tbody>
     <tr ng-repeat="log in logs">
       <td><a ng-href="/#/log/{{ log._id }}">{{ log.topic }}</a></td>
       <td>{{ log.category }}</td>
-      <td>
-        <div class="button-group">
-          <a ng-href="/#/log/{{ log._id }}/edit" class="btn btn-default">
-            <span class="glyphicon glyphicon-edit"></span>
-          </a>
-          <a ng-href="/#/log/{{ log._id }}/delete" class="btn btn-danger">
-            <span class="glyphicon glyphicon-remove-circle"></span>
-          </a>
-        </div>
-      </td>
       <td>
         <a class="btn btn-primary" ng-click="start(log._id)">
           <span class='glyphicon glyphicon-circle-arrow-right'></span>

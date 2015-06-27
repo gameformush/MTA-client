@@ -1,0 +1,17 @@
+<ng-include src="'views/remind-nav.html'"></ng-include>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Topic</th>
+			<th>Category</th>
+			<th>Short description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="log in logs">
+			<td><a ng-href="/#/log/{{log._id}}">{{log.topic}} </a></td>
+			<td>{{log.category}} </td>
+			<td class="col-lg-9" ><div marked="log.knowledge"></div></td>
+		</tr>
+	</tbody>
+</table>

@@ -8,6 +8,7 @@
  *
  * Main module of the application.
  */
+
 angular
   .module('clientApp', [
     'ngAnimate',
@@ -15,7 +16,9 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'restangular'
+    'restangular',
+    'ngHumane',
+    'hc.marked'
   ])
   .config(function ($routeProvider, RestangularProvider) {
 
@@ -50,6 +53,14 @@ angular
         templateUrl: 'views/log-delete.html',
         controller: 'LogDeleteCtrl'
       })
+      .when('/remind/:date', {
+        templateUrl: 'views/remind.html',
+        controller: 'RemindCtrl'
+      })
+      .when('/activities', {
+        templateUrl: 'views/activities.html',
+        controller: 'ActivitiesCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
@@ -65,3 +76,18 @@ angular
   .factory( 'Log',[ 'LogRestangular' ,function (LogRestangular) {
       return LogRestangular.service('log');
     }]);
+
+angular.module('ngHumane', [])
+  .factory('$humane', function(){
+    var nghumane = new humane.create({timeout: 2500, baseCls: 'humane-jackedup'});
+    nghumane.error = function(html, o, cb) {
+      humane.log(html, o, cb, {addnCls: 'humane-jackedup-error', clickToClose: true});
+    };
+    nghumane.info = function(html, o, cb) {
+      humane.log(html, o, cb, {addnCls: 'humane-jackedup-info'});
+    };
+    nghumane.success = function(html, o, cb) {
+      humane.log(html, o, cb, {addnCls: 'humane-jackedup-success'});
+    };
+    return nghumane;
+});

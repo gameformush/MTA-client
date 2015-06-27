@@ -35,6 +35,9 @@ module.exports = function(config) {
       'bower_components/restangular/dist/restangular.js',
       'bower_components/json3/lib/json3.js',
       'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
+      'bower_components/humane/humane.min.js',
+      'bower_components/marked/lib/marked.js',
+      'bower_components/angular-marked/angular-marked.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/angular-scenario/angular-scenario.js',
       // endbower

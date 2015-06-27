@@ -1,3 +1,22 @@
-<!-- <ng-include src="'views/log-nav.html'"></ng-include> -->
-<h3>{{log.date}} </h3>
-<p><youtube src="log.text"></youtube></p>
+<ng-include src="'views/log-nav.html'"></ng-include>
+<div class="row">
+<h3 class="col-lg-9">Topic: {{log.topic}}</h3>
+<h3 class="col-lg-3">{{log.date.getFullYear()}}-{{log.date.getMonth() +1}}-{{log.date.getDate()}} </h3>
+</div>
+<hr>
+<h4>Category: {{log.category}} </h4>
+<div marked="log.knowledge"></div>
+
+<table class="table table-striped">
+	<thead>
+		<th>Start</th>
+		<th>End</th>
+	</thead>
+	<tbody>
+	<tr ng-repeat="time in log.times" >
+		<td >{{time.start.getHours()}}:{{time.start.getMinutes()}}:{{time.start.getSeconds()}} </td>
+		<td >{{time.end.getHours()}}:{{time.end.getMinutes()}}:{{time.end.getSeconds()}} </td>
+	</tr>
+
+	</tbody>
+</table>
